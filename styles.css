@@ -57,3 +57,26 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
     transform:translateX(108px);
   }
 }
+
+/* CTA del header: ahora vive fuera del nav para mantenerlo independiente y alineado. */
+@media(min-width:1051px){
+  .site-header .nav > .cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--orange);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:13px;
+    font-weight:700;
+    line-height:1.2;
+    margin-left:0;
+    transform:none;
+    white-space:nowrap;
+  }
+  .site-header .nav > .cta:hover,
+  .site-header .nav > .cta:focus-visible{
+    background:#9f451a;
+    color:#fff;
+  }
+}
