@@ -23,13 +23,13 @@ document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()
     ['programas.html','Programas'],
     ['empresas.html','Empresas'],
     ['alianzas.html','Alianzas'],
-    ['historias.html','Historias'],
-    ['transparencia.html','Transparencia'],
+    ['eventos.html','Eventos'],
     ['contacto.html','Contacto']
   ];
   const extra=[
-    ['eventos.html','Eventos'],
+    ['historias.html','Historias'],
     ['podcast.html','Podcast'],
+    ['transparencia.html','Transparencia'],
     ['souvenirs.html','Souvenirs'],
     ['voluntariado.html','Voluntariado']
   ];
