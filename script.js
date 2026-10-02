@@ -24,14 +24,14 @@ document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()
     ['empresas.html','Empresas'],
     ['alianzas.html','Alianzas'],
     ['eventos.html','Eventos'],
+    ['souvenirs.html','Souvenirs'],
+    ['voluntariado.html','Voluntariado'],
     ['contacto.html','Contacto']
   ];
   const extra=[
     ['historias.html','Historias'],
     ['podcast.html','Podcast'],
-    ['transparencia.html','Transparencia'],
-    ['souvenirs.html','Souvenirs'],
-    ['voluntariado.html','Voluntariado']
+    ['transparencia.html','Transparencia']
   ];
   document.querySelectorAll('.menu').forEach(nav=>{
     nav.innerHTML='';
