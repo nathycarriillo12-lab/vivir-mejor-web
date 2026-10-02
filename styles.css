@@ -200,3 +200,20 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .story-panel>a{margin-bottom:30px}
 @media(max-width:1050px){.hero-visual,.hero-visual img{min-height:380px}}
 @media(max-width:650px){.hero-visual,.hero-visual img{min-height:330px}.hero-visual-caption{left:14px;right:14px;bottom:14px;padding:15px 16px}.program-card .program-image{height:175px}.story-photo{height:165px}}
+
+/* Aportaciones — datos bancarios */
+.bank-section{padding:72px 0;background:#f7f9fb;border-top:1px solid var(--line)}
+.bank-section .section-head{max-width:820px}
+.bank-card{max-width:900px;margin:30px auto 0;padding:34px;border-radius:28px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.bank-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.bank-label{font-size:10px;letter-spacing:.16em;font-weight:800;color:var(--orange2)}
+.bank-head h3{margin:8px 0 0;color:var(--dark)}
+.bank-badge{padding:8px 12px;border-radius:999px;background:#edf3f8;color:var(--blue);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.bank-data{display:grid;margin:18px 0 24px}
+.bank-row{display:grid;grid-template-columns:180px 1fr auto;align-items:center;gap:18px;padding:16px 0;border-bottom:1px solid #edf0f3}
+.bank-row span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}
+.bank-row strong{color:var(--dark);font-size:16px;word-break:break-word}
+.bank-row button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;color:var(--blue);font-weight:800;cursor:pointer;min-height:40px}
+.bank-row button:hover,.bank-row button:focus-visible{border-color:var(--blue);background:#edf3f8}
+.bank-note{padding:16px 18px;border-radius:16px;background:#f7f9fb;color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:20px}
+@media(max-width:650px){.bank-card{padding:24px 18px}.bank-head{flex-direction:column}.bank-row{grid-template-columns:1fr;gap:7px}.bank-row button{justify-self:start}}
