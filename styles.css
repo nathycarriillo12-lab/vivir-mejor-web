@@ -372,3 +372,14 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .consent-check input{margin-top:3px}
 @media(max-width:950px){.teleton-main{grid-template-columns:1fr}.teleton-side-card{position:static}.teleton-amounts{grid-template-columns:1fr 1fr}}
 @media(max-width:650px){.teleton-amounts,.teleton-payments,.teleton-form{grid-template-columns:1fr}}
+
+/* Tarjetas de monto — Home */
+.home-donation{background:#f5c400!important;padding:82px 0!important}
+.home-amounts{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important;margin-top:30px}
+.home-amount{display:flex!important;flex-direction:column!important;justify-content:space-between!important;min-height:170px!important;padding:26px!important;border:2px solid #18324f!important;border-radius:18px!important;background:#fff!important;color:#18324f!important;text-decoration:none!important}
+.home-amount strong{display:block!important;font-size:38px!important;line-height:1!important;color:#18324f!important}
+.home-amount span{display:block!important;font-size:14px!important;line-height:1.45!important;color:#526b80!important;margin-top:18px!important}
+.home-amount:hover,.home-amount:focus-visible{background:#6e1d78!important;border-color:#6e1d78!important;transform:translateY(-4px)}
+.home-amount:hover strong,.home-amount:hover span,.home-amount:focus-visible strong,.home-amount:focus-visible span{color:#fff!important}
+@media(max-width:900px){.home-amounts{grid-template-columns:1fr 1fr!important}}
+@media(max-width:550px){.home-amounts{grid-template-columns:1fr!important}}
