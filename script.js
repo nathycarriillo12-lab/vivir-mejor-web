@@ -41,7 +41,7 @@ document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()
     const list=document.createElement('div'); list.className='menu-more-list';
     extra.forEach(([href,label])=>{const a=document.createElement('a');a.href=href;a.textContent=label;list.appendChild(a)});
     more.append(toggle,list); nav.appendChild(more);
-    const cta=document.createElement('a'); cta.href='aportar.html'; cta.className='cta'; cta.textContent='Invertir en impacto'; nav.appendChild(cta);
+    const cta=document.createElement('a'); cta.href='aportar.html'; cta.className='cta'; cta.textContent='Invertir en impacto'; document.querySelector('.site-header .nav')?.appendChild(cta);
     toggle.addEventListener('click',()=>{const open=more.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open))});
   });
   document.querySelectorAll('.mobile-menu').forEach(menu=>{
