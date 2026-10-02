@@ -80,3 +80,25 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
     color:#fff;
   }
 }
+
+/* Hero visual: composición editorial provisional lista para sustituir por la fotografía final. */
+.photo-stage{min-height:500px;border-radius:32px;background:linear-gradient(145deg,#18324f 0%,#3e608f 52%,#7e94ad 100%);box-shadow:var(--shadow);position:relative;overflow:hidden;isolation:isolate}
+.photo-stage:before{content:'';position:absolute;inset:0;background:linear-gradient(125deg,rgba(24,50,79,.92) 0%,rgba(62,96,143,.62) 45%,rgba(200,84,18,.18) 100%);z-index:0}
+.photo-stage:after{content:'';position:absolute;width:430px;height:430px;border-radius:50%;right:-120px;top:-120px;background:rgba(255,255,255,.11);z-index:0}
+.photo-overlay{position:absolute;inset:28px;border:1px solid rgba(255,255,255,.28);border-radius:24px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;z-index:4;color:#fff}
+.photo-label{font-size:11px;letter-spacing:.18em;font-weight:800;color:#fff}
+.photo-copy{display:grid;gap:12px;max-width:330px}
+.photo-copy strong{font-size:27px;line-height:1.12;letter-spacing:-.025em}
+.photo-copy span{font-size:12px;text-transform:uppercase;letter-spacing:.14em;opacity:.78}
+.photo-shape{position:absolute;border-radius:50%;z-index:1}
+.shape-one{width:300px;height:300px;right:-60px;bottom:-75px;background:rgba(200,84,18,.34)}
+.shape-two{width:190px;height:190px;left:-55px;bottom:70px;background:rgba(255,255,255,.12)}
+.photo-person{position:absolute;z-index:2;background:linear-gradient(180deg,rgba(255,255,255,.46),rgba(255,255,255,.10));filter:blur(.2px)}
+.person-one{width:150px;height:280px;right:105px;bottom:-35px;border-radius:75px 75px 35px 35px;transform:rotate(7deg)}
+.person-one:before{content:'';position:absolute;width:92px;height:92px;border-radius:50%;left:29px;top:-58px;background:rgba(255,255,255,.48)}
+.person-two{width:105px;height:215px;right:225px;bottom:-20px;border-radius:55px 55px 25px 25px;opacity:.58;transform:rotate(-8deg)}
+.person-two:before{content:'';position:absolute;width:65px;height:65px;border-radius:50%;left:20px;top:-42px;background:rgba(255,255,255,.58)}
+.photo-watermark{position:absolute;right:26px;top:28px;z-index:5;opacity:.88}
+.photo-watermark img{width:108px}
+@media(max-width:1050px){.photo-stage{min-height:390px}}
+@media(max-width:650px){.photo-stage{min-height:340px;border-radius:24px}.photo-overlay{inset:20px;padding:20px}.photo-copy strong{font-size:23px}.photo-watermark img{width:82px}.person-one{right:55px}.person-two{right:150px}}
