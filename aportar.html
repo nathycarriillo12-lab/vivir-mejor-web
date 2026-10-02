@@ -65,6 +65,16 @@
             <label>Correo electrónico<input id="donorEmail" type="email" placeholder="correo@ejemplo.com"></label>
             <label>Teléfono<input id="donorPhone" type="tel" placeholder="10 dígitos"></label>
           </div>
-          <div class="secure-provider-box"><strong>Datos de pago</strong><p>Los datos bancarios o de tarjeta se capturarán dentro de la pasarela segura de pago. Vivir Mejor no almacenará números de tarjeta ni CVV.</p><span>Pasarela de pago: pendiente de configuración.</span></div>
+          <div class="payment-data-box">
+  <span class="donation-label">DATOS DE PAGO</span>
+  <h3>Datos de tu tarjeta</h3>
+  <div class="donor-form teleton-form card-fields">
+    <label>Número de tarjeta<input id="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000"></label>
+    <label>Nombre en la tarjeta<input id="cardName" type="text" autocomplete="cc-name" placeholder="Nombre como aparece en la tarjeta"></label>
+    <label>Vencimiento<input id="cardExpiry" type="text" autocomplete="cc-exp" placeholder="MM/AA"></label>
+    <label>CVV<input id="cardCvv" type="password" inputmode="numeric" autocomplete="cc-csc" placeholder="•••"></label>
+  </div>
+  <div class="secure-provider-box"><strong>Pago seguro</strong><p>Al conectar la pasarela, estos datos se capturarán directamente en el entorno seguro del proveedor. Vivir Mejor no almacenará números de tarjeta ni CVV.</p><span>Pasarela de pago: pendiente de configuración.</span></div>
+</div>
         </div>
 >
