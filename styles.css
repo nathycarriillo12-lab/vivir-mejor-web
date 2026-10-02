@@ -398,3 +398,33 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .teleton-style .teleton-form-panel{border-color:#3E608F!important}
 .teleton-style .secure-provider-box{border-left:4px solid #C85412!important}
 .teleton-style .donation-label,.teleton-style .donation-eyebrow{color:#C85412!important}
+
+/* Paso 2: datos bancarios — identidad Vivir Mejor */
+.bank-step{background:#f7f9fc;padding-bottom:90px}
+.bank-step .donation-progress{background:#d9e2eb}
+.bank-step .donation-progress>div{background:#C85412}
+.bank-step .donation-step{border-color:#3E608F}
+.bank-step .donation-step strong,.bank-step .donation-step span,.bank-step .donation-step small{color:#18324F}
+.bank-step .donation-eyebrow,.bank-step .donation-label{color:#C85412}
+.bank-layout{max-width:1000px;padding-top:48px}
+.bank-layout h2{color:#18324F;font-size:clamp(38px,5vw,60px);margin:8px 0}
+.bank-intro{color:#526b80;font-size:17px}
+.selected-contribution{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#18324F;color:#fff;border-radius:16px;padding:22px 26px;margin:26px 0}
+.selected-contribution span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.selected-contribution strong{font-size:30px}
+.bank-card,.receipt-card{background:#fff;border:2px solid #3E608F;border-radius:18px;padding:28px;margin-top:20px}
+.bank-card-head{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #d9e0e7;padding-bottom:18px}
+.bank-card-head h3,.receipt-card h3{color:#18324F;margin:6px 0}
+.bank-badge{background:#eaf0f6;color:#18324F;border-radius:99px;padding:7px 12px;font-size:12px;font-weight:800}
+.bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.bank-field{background:#f7f9fc;border:1px solid #d9e0e7;border-radius:12px;padding:18px}
+.bank-field span{display:block;color:#687b8c;font-size:11px;text-transform:uppercase;font-weight:800;letter-spacing:.06em;margin-bottom:7px}
+.bank-field strong{display:block;color:#18324F;font-size:17px}
+.bank-field button{margin-top:12px;border:0;background:#3E608F;color:#fff;border-radius:8px;padding:8px 12px;font-weight:800;cursor:pointer}
+.receipt-card p,.bank-finish p{color:#526b80;line-height:1.6}
+.receipt-card .donor-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.receipt-card .donor-form label{color:#18324F;font-weight:800}
+.receipt-card input{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #cdd6df;border-radius:9px}
+.bank-finish{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:20px;padding:22px 0}
+.bank-finish .btn,.receipt-card .btn{background:#C85412;border-color:#C85412;color:#fff}
+@media(max-width:700px){.bank-grid,.receipt-card .donor-form{grid-template-columns:1fr}.bank-finish{display:block}.bank-finish .btn{margin-top:12px}}
