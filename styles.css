@@ -331,3 +331,44 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .donation-campaign .donation-actions .btn-primary{background:#6e1d78;border-color:#6e1d78}
 @media(max-width:900px){.home-amounts,.donation-campaign .amount-grid{grid-template-columns:1fr 1fr}.donation-campaign .payment-options{grid-template-columns:1fr}.donation-campaign .donor-form.compact{grid-template-columns:1fr}}
 @media(max-width:550px){.home-amounts,.donation-campaign .amount-grid{grid-template-columns:1fr}}
+
+/* Aportación: experiencia amarilla tipo campaña */
+.teleton-style{background:#f5c400;padding-bottom:90px}
+.teleton-style .donation-top{padding-top:58px}
+.teleton-style .donation-progress{background:rgba(24,50,79,.18)}
+.teleton-style .donation-progress>div{background:#6e1d78}
+.teleton-main{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:42px;align-items:start}
+.teleton-copy{max-width:900px}
+.teleton-copy h2{font-size:clamp(38px,5vw,64px);line-height:.98;color:#18324f;margin:10px 0 14px;letter-spacing:-.04em}
+.teleton-copy>p{color:#18324f;font-size:17px;max-width:720px}
+.teleton-amounts{grid-template-columns:repeat(4,1fr);margin:32px 0 20px}
+.teleton-amounts .amount-option{background:#fff;border:2px solid #18324f;border-radius:16px;min-height:155px;text-align:left;padding:20px;transition:.18s}
+.teleton-amounts .amount-option strong{font-size:28px;color:#18324f}
+.teleton-amounts .amount-option span{display:block;color:#526b80;margin-top:9px;line-height:1.35}
+.teleton-amounts .amount-option.active,.teleton-amounts .amount-option:hover,.teleton-amounts .amount-option:focus-visible{background:#6e1d78;border-color:#6e1d78;color:#fff}
+.teleton-amounts .amount-option.active strong,.teleton-amounts .amount-option.active span,.teleton-amounts .amount-option:hover strong,.teleton-amounts .amount-option:hover span{color:#fff}
+.teleton-selects{max-width:620px;margin:18px 0 24px}
+.teleton-selects label{display:grid;gap:8px;color:#18324f;font-weight:800}
+.teleton-selects label span{font-size:11px;font-weight:500;margin-left:5px}
+.teleton-selects select{height:50px;border:2px solid #18324f;border-radius:10px;background:#fff;padding:0 14px;color:#18324f}
+.teleton-cta{background:#6e1d78!important;border-color:#6e1d78!important;color:#fff!important;padding:15px 24px}
+.secure-line{margin-top:18px;color:#18324f;font-size:13px}
+.teleton-side-card{background:#6e1d78;color:#fff;border-radius:20px;padding:25px;position:sticky;top:95px;box-shadow:0 10px 25px rgba(24,50,79,.12)}
+.teleton-side-card span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.teleton-side-card strong{display:block;font-size:30px;margin:10px 0}
+.teleton-side-card small{display:block;margin-top:7px;opacity:.9}
+.teleton-payments{grid-template-columns:1fr 1fr;max-width:760px;margin:25px 0 18px}
+.teleton-payments .payment-option{border:2px solid #18324f;background:#fff;min-height:95px;border-radius:14px}
+.teleton-payments .payment-option.active{border-color:#6e1d78;box-shadow:0 6px 0 rgba(110,29,120,.18)}
+.teleton-form-panel{background:#fff;border:2px solid #18324f;border-radius:18px;padding:26px;box-shadow:none}
+.teleton-form{grid-template-columns:1fr 1fr;gap:16px}
+.teleton-form label{color:#18324f;font-weight:800}
+.teleton-form input{background:#f7f9fb;border:1px solid #cdd6df;border-radius:9px}
+.secure-provider-box{margin-top:20px;background:#f7f9fb;border:1px solid #d6dee7;border-radius:12px;padding:18px}
+.secure-provider-box strong{color:#18324f;font-size:18px}
+.secure-provider-box p{color:#526b80;margin:7px 0}
+.secure-provider-box span{font-size:12px;color:#6b7b88}
+.consent-check{display:flex;gap:9px;align-items:flex-start;margin:18px 0;color:#18324f;font-size:13px}
+.consent-check input{margin-top:3px}
+@media(max-width:950px){.teleton-main{grid-template-columns:1fr}.teleton-side-card{position:static}.teleton-amounts{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.teleton-amounts,.teleton-payments,.teleton-form{grid-template-columns:1fr}}
