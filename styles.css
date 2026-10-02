@@ -50,3 +50,7 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
     flex:none;
   }
 }
+
+@media(min-width:1051px){
+  .site-header .menu > .cta{margin-left:24px}
+}
