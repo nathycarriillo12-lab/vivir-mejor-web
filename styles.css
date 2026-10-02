@@ -38,3 +38,15 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .site-header .menu-more-list a{display:block!important;width:100%;padding:10px 12px!important;border-radius:9px}
 .site-header .menu-more-list a:hover,.site-header .menu-more-list a:focus-visible{background:#edf3f8}
 @media(max-width:1050px){.site-header .menu-more{display:none!important}}
+
+/* Header: centrar el bloque de navegación en la pantalla, manteniendo el logo a la izquierda. */
+@media(min-width:1051px){
+  .site-header .nav{position:relative}
+  .site-header .menu{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:max-content;
+    flex:none;
+  }
+}
