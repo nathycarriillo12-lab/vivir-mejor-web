@@ -285,3 +285,17 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .amount-option.active,.payment-option.active{border-color:#6e1d78;box-shadow:0 8px 25px rgba(110,29,120,.16)}
 .donation-actions .btn-primary{background:#6e1d78;border-color:#6e1d78}
 .transfer-panel{border-color:rgba(24,50,79,.22)}
+
+/* Home — flujo de aportación sin secciones duplicadas */
+.home-donation-flow{padding:78px 0;background:#f5c400}
+.home-donation-flow .section-head{max-width:850px;margin-bottom:34px}
+.home-donation-flow .section-head h2{color:#18324f;margin:8px 0 12px}
+.home-donation-flow .section-head p{color:#18324f;max-width:760px}
+.home-flow-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.home-flow-step{display:flex;gap:18px;align-items:flex-start;background:#fff;border:2px solid #18324f;border-radius:20px;padding:25px 22px;min-height:135px}
+.home-flow-step>span{font-size:13px;font-weight:900;color:#6e1d78;letter-spacing:.08em}
+.home-flow-step strong{display:block;color:#18324f;font-size:19px;margin-bottom:7px}
+.home-flow-step p{margin:0;color:#526b80;font-size:13px;line-height:1.45}
+.home-flow-action{display:flex;justify-content:center;margin-top:28px}
+.home-flow-action .btn{background:#6e1d78;border-color:#6e1d78;color:#fff;font-size:16px;padding:15px 26px}
+@media(max-width:800px){.home-flow-steps{grid-template-columns:1fr}.home-donation-flow{padding:58px 0}}
