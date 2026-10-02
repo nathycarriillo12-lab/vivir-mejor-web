@@ -41,14 +41,9 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 
 /* Header: centrar el bloque de navegación en la pantalla, manteniendo el logo a la izquierda. */
 @media(min-width:1051px){
-  .site-header .nav{position:relative}
-  .site-header .menu{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:max-content;
-    flex:none;
-  }
+  .site-header .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:28px}
+  .site-header .menu{position:static;transform:none;width:max-content;justify-self:center;flex:none}
+  .site-header .nav > .cta{margin-left:0;transform:none;justify-self:end}
 }
 
 @media(min-width:1051px){
