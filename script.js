@@ -93,3 +93,12 @@ document.querySelectorAll('[data-copy-bank]').forEach(btn=>btn.addEventListener(
  document.querySelectorAll('[data-prev-step]').forEach(b=>b.addEventListener('click',()=>{if(step>1){step--;sync();window.scrollTo({top:0,behavior:'smooth'})}}));
  sync();
 })();
+
+/* Leer monto elegido desde Home */
+(function(){
+ const p=new URLSearchParams(location.search), v=p.get('amount');
+ if(!v || !document.querySelector('.donation-shell')) return;
+ const btn=document.querySelector('[data-amount="'+v+'"]');
+ if(btn){btn.click();return}
+ if(v==='custom'){document.querySelector('[data-amount="custom"]')?.click()}
+})();
