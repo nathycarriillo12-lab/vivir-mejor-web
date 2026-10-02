@@ -16,5 +16,37 @@ function renderCart(){const box=document.querySelector('[data-cart-items]');cons
 const checkout=document.querySelector('[data-checkout]');if(checkout){checkout.addEventListener('click',()=>{if(!cart.length)return alert('Agrega al menos un producto.');const detail=cart.map(x=>`${x.qty} x ${x.name} ($${x.price} c/u)`).join('\n');const total=cart.reduce((s,x)=>s+x.price*x.qty,0);window.open(wa(`Hola, Vivir Mejor. Quiero solicitar estos souvenirs:\n${detail}\nTotal: $${total} MXN`),'_blank')})}
 document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>addToCart(b.dataset.add,Number(b.dataset.price))));renderCart();
 
-// Nombre corto de navegación para la Red médica: Alianzas.
-document.querySelectorAll('.menu a[href="red-medica.html"], .mobile-menu a[href="red-medica.html"], .footer-links a[href="red-medica.html"]').forEach(a=>{a.href='alianzas.html';a.textContent='Alianzas';});
+/* Navegación principal: ordenada según el recorrido de conversión. */
+(function(){
+  const items=[
+    ['nosotros.html','Nosotros'],
+    ['programas.html','Programas'],
+    ['empresas.html','Empresas'],
+    ['alianzas.html','Alianzas'],
+    ['historias.html','Historias'],
+    ['transparencia.html','Transparencia'],
+    ['contacto.html','Contacto']
+  ];
+  const extra=[
+    ['eventos.html','Eventos'],
+    ['podcast.html','Podcast'],
+    ['souvenirs.html','Souvenirs'],
+    ['voluntariado.html','Voluntariado']
+  ];
+  document.querySelectorAll('.menu').forEach(nav=>{
+    nav.innerHTML='';
+    items.forEach(([href,label])=>{const a=document.createElement('a');a.href=href;a.textContent=label;nav.appendChild(a)});
+    const more=document.createElement('div'); more.className='menu-more';
+    const toggle=document.createElement('button'); toggle.type='button'; toggle.className='menu-more-toggle'; toggle.setAttribute('aria-expanded','false'); toggle.textContent='Más ▾';
+    const list=document.createElement('div'); list.className='menu-more-list';
+    extra.forEach(([href,label])=>{const a=document.createElement('a');a.href=href;a.textContent=label;list.appendChild(a)});
+    more.append(toggle,list); nav.appendChild(more);
+    const cta=document.createElement('a'); cta.href='aportar.html'; cta.className='cta'; cta.textContent='Invertir en impacto'; nav.appendChild(cta);
+    toggle.addEventListener('click',()=>{const open=more.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open))});
+  });
+  document.querySelectorAll('.mobile-menu').forEach(menu=>{
+    menu.innerHTML='';
+    [...items,...extra].forEach(([href,label])=>{const a=document.createElement('a');a.href=href;a.textContent=label;menu.appendChild(a)});
+    const cta=document.createElement('a');cta.href='aportar.html';cta.textContent='Invertir en impacto';cta.className='mobile-cta';menu.appendChild(cta);
+  });
+})();
