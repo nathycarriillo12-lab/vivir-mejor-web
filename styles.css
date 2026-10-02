@@ -383,3 +383,18 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .home-amount:hover strong,.home-amount:hover span,.home-amount:focus-visible strong,.home-amount:focus-visible span{color:#fff!important}
 @media(max-width:900px){.home-amounts{grid-template-columns:1fr 1fr!important}}
 @media(max-width:550px){.home-amounts{grid-template-columns:1fr!important}}
+
+/* Corrección final de identidad institucional en aportación */
+.teleton-style{background:#f7f9fc!important}
+.teleton-style .donation-progress{background:#d9e2eb!important}
+.teleton-style .donation-progress>div{background:#C85412!important}
+.teleton-style .donation-step{border-color:#3E608F!important}
+.teleton-style .donation-step strong,.teleton-style .donation-step span,.teleton-style .donation-step small{color:#18324F!important}
+.teleton-style .teleton-amounts .amount-option{border-color:#3E608F!important}
+.teleton-style .teleton-amounts .amount-option.active,.teleton-style .teleton-amounts .amount-option:hover,.teleton-style .teleton-amounts .amount-option:focus-visible{background:#3E608F!important;border-color:#3E608F!important}
+.teleton-style .teleton-side-card{background:#18324F!important}
+.teleton-style .teleton-cta{background:#C85412!important;border-color:#C85412!important}
+.teleton-style .teleton-payments .payment-option.active{border-color:#C85412!important;box-shadow:0 6px 0 rgba(200,84,18,.14)!important}
+.teleton-style .teleton-form-panel{border-color:#3E608F!important}
+.teleton-style .secure-provider-box{border-left:4px solid #C85412!important}
+.teleton-style .donation-label,.teleton-style .donation-eyebrow{color:#C85412!important}
