@@ -59,6 +59,6 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
   /* El CTA se alinea con el borde derecho del contenido principal. */
   .site-header .menu > .cta{
     margin-left:34px;
-    transform:translateX(158px);
+    transform:translateX(108px);
   }
 }
