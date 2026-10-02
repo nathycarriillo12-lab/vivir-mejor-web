@@ -64,7 +64,7 @@ document.querySelectorAll('[data-copy-bank]').forEach(btn=>btn.addEventListener(
 (function(){
  const panels=[...document.querySelectorAll('.donation-step-panel')];
  if(!panels.length)return;
- let step=1, amount=500, method='transfer';
+ let step=1, amount=500, method='card';
  const money=n=>'$'+Number(n).toLocaleString('es-MX')+' MXN';
  const destination=()=>document.getElementById('donationDestination')?.value||'Fondo general';
  function sync(){
@@ -73,7 +73,7 @@ document.querySelectorAll('[data-copy-bank]').forEach(btn=>btn.addEventListener(
   if(n)n.textContent=step;if(bar)bar.style.width=(step/2*100)+'%';
   ['selectedAmount','selectedAmount3'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=money(amount)});
   ['selectedDestination2','selectedDestination3'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=destination()});
-  const sm=document.getElementById('selectedMethod3');if(sm)sm.textContent=method==='transfer'?'Transferencia bancaria':'Pago en línea';
+  const sm=document.getElementById('selectedMethod3');if(sm)sm.textContent=method==='card'?'Tarjeta de crédito o débito':'PayPal';
   const finish=document.getElementById('donationFinish');
   if(finish)finish.href=wa('Hola, Vivir Mejor. Quiero realizar una aportación de '+money(amount)+' para '+destination()+'. Elegí '+(method==='transfer'?'transferencia bancaria':'pago en línea')+'.');
  }
