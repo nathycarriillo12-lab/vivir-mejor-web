@@ -50,3 +50,12 @@ document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()
     const cta=document.createElement('a');cta.href='aportar.html';cta.textContent='Invertir en impacto';cta.className='mobile-cta';menu.appendChild(cta);
   });
 })();
+
+/* Copiar datos bancarios */
+document.querySelectorAll('[data-copy-bank]').forEach(btn=>btn.addEventListener('click',async()=>{
+ const key=btn.dataset.copyBank;
+ const el=document.querySelector('[data-bank-value="'+key+'"]');
+ if(!el)return;
+ try{await navigator.clipboard.writeText(el.textContent.trim());const old=btn.textContent;btn.textContent='Copiado ✓';setTimeout(()=>btn.textContent=old,1600);}
+ catch(e){alert('No se pudo copiar. Puedes seleccionar el dato manualmente.');}
+}));
