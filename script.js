@@ -60,44 +60,12 @@ document.querySelectorAll('[data-copy-bank]').forEach(btn=>btn.addEventListener(
  catch(e){alert('No se pudo copiar. Puedes seleccionar el dato manualmente.');}
 }));
 
-/* Flujo de aportación en 2 pasos */
+/* Monto elegido en Home -> Paso 2 */
 (function(){
- const panels=[...document.querySelectorAll('.donation-step-panel')];
- if(!panels.length)return;
- let step=1, amount=500, method='card';
- const money=n=>'$'+Number(n).toLocaleString('es-MX')+' MXN';
- const destination=()=>document.getElementById('donationDestination')?.value||'Fondo general';
- function sync(){
-  panels.forEach((p,i)=>p.hidden=i!==step-1);
-  const n=document.getElementById('donationStepNumber'),bar=document.getElementById('donationProgress');
-  if(n)n.textContent=step;if(bar)bar.style.width=(step/2*100)+'%';
-  ['selectedAmount','selectedAmount3'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=money(amount)});
-  ['selectedDestination2','selectedDestination3'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=destination()});
-  const sm=document.getElementById('selectedMethod3');if(sm)sm.textContent=method==='card'?'Tarjeta de crédito o débito':'PayPal';
-  const finish=document.getElementById('donationFinish');
-  if(finish)finish.href=wa('Hola, Vivir Mejor. Quiero realizar una aportación de '+money(amount)+' para '+destination()+'. Elegí '+(method==='transfer'?'transferencia bancaria':'pago en línea')+'.');
- }
- document.querySelectorAll('[data-amount]').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('[data-amount]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
-  const v=btn.dataset.amount,wrap=document.getElementById('customAmountWrap');
-  if(v==='custom'){if(wrap)wrap.hidden=false;return}
-  if(wrap)wrap.hidden=true;amount=Number(v);sync();
- }));
- document.getElementById('customAmount')?.addEventListener('input',e=>{if(Number(e.target.value)>=50){amount=Number(e.target.value);sync()}});
- document.getElementById('donationDestination')?.addEventListener('change',sync);
- document.querySelectorAll('[data-method]').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('[data-method]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');method=btn.dataset.method;
-  document.querySelectorAll('[data-method-panel]').forEach(x=>x.hidden=x.dataset.methodPanel!==method);sync();
- }));
- document.querySelectorAll('[data-next-step]').forEach(btn=>btn.addEventListener('click',()=>{if(step<2){step=2;sync();window.scrollTo({top:0,behavior:'smooth'})}}));
- document.querySelectorAll('[data-prev-step]').forEach(btn=>btn.addEventListener('click',()=>{if(step>1){step=1;sync();window.scrollTo({top:0,behavior:'smooth'})}}));
- sync();
-})();
-/* Leer monto elegido desde Home */
-(function(){
- const p=new URLSearchParams(location.search), v=p.get('amount');
- if(!v || !document.querySelector('.donation-shell')) return;
- const btn=document.querySelector('[data-amount="'+v+'"]');
- if(btn){btn.click();return}
- if(v==='custom'){document.querySelector('[data-amount="custom"]')?.click()}
+ const page=document.querySelector('.bank-step');
+ if(!page)return;
+ const value=new URLSearchParams(location.search).get('amount');
+ const amount=value && value!=='custom' ? Number(value) : 500;
+ const el=document.getElementById('selectedAmount3');
+ if(el)el.textContent='$'+Number(amount).toLocaleString('es-MX')+' MXN';
 })();
