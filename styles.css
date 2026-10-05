@@ -459,3 +459,29 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
   box-shadow:0 10px 28px rgba(24,50,79,.22);
 }
 .whatsapp-logo{width:38px;height:38px;display:block}
+
+/* Footer — contacto destacado */
+.footer-contact-card{
+  background:#fff;
+  color:var(--dark);
+  border-radius:20px;
+  padding:24px 24px 20px;
+  box-shadow:0 14px 32px rgba(0,0,0,.14);
+}
+.footer-contact-card .footer-title{
+  color:var(--dark);
+  margin-bottom:18px;
+}
+.footer-contact-card .footer-links{
+  gap:13px;
+}
+.footer-contact-card .footer-links a{
+  color:var(--dark);
+}
+.footer-contact-card .footer-links a:hover,
+.footer-contact-card .footer-links a:focus-visible{
+  color:var(--orange2);
+}
+@media(max-width:800px){
+  .footer-contact-card{margin-top:8px}
+}
