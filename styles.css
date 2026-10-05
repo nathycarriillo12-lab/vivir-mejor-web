@@ -502,3 +502,8 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .bank-card button[data-copy-bank]{transition:background .2s ease,color .2s ease,transform .2s ease}
 .bank-card button[data-copy-bank].copied{background:#6b7280!important;color:#fff!important;transform:none}
 @media(max-width:800px){.donation-top{padding:20px 0 18px!important}}
+
+
+/* Alineación de tarjetas de aportación */
+.bank-card{max-width:none!important;width:100%!important;box-sizing:border-box}
+.receipt-card{width:100%;box-sizing:border-box}
