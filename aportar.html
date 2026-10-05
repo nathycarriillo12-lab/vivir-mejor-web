@@ -59,62 +59,68 @@
 </main>
 <script>
 (function(){
-  const params=new URLSearchParams(window.location.search);
-  const raw=params.get('amount');
-  const selected=document.getElementById('selectedAmount3');
-  const finish=document.getElementById('donationFinish');
-  const box=document.getElementById('customAmountBox');
-  const input=document.getElementById('customAmount');
-  const confirm=document.getElementById('confirmCustomAmount');
-  const error=document.getElementById('customAmountError');
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get('amount');
+  const selected = document.getElementById('selectedAmount3');
+  const finish = document.getElementById('donationFinish');
+  const box = document.getElementById('customAmountBox');
+  const input = document.getElementById('customAmount');
+  const confirm = document.getElementById('confirmCustomAmount');
+  const error = document.getElementById('customAmountError');
 
-  function setAmount(amount){
-    const n=Number(amount);
-    if(!Number.isFinite(n) || n<=0){
-      if(error) error.style.display='block';
+  function formatAmount(n){
+    return '$' + Number(n).toLocaleString('es-MX') + ' MXN';
+  }
+
+  function setAmount(value){
+    const n = Number(value);
+    if(!Number.isFinite(n) || n <= 0){
+      if(error) error.style.display = 'block';
       return;
     }
-    if(error) error.style.display='none';
-    const formatted='
-</body></html>
-<!-- Publicación GitHub Pages: versión canónica de aportación -->
-+n.toLocaleString('es-MX')+' MXN';
-    if(selected) selected.textContent=formatted;
+    if(error) error.style.display = 'none';
+    const formatted = formatAmount(n);
+    if(selected) selected.textContent = formatted;
+    if(box) box.style.display = 'none';
     if(finish){
-      const text='Hola, Vivir Mejor. Ya realicé una aportación de '+formatted+' y quiero enviar mi comprobante.';
-      finish.href='https://wa.me/524622519129?text='+encodeURIComponent(text);
+      const text = 'Hola, Vivir Mejor. Ya realicé una aportación de ' + formatted + ' y quiero enviar mi comprobante.';
+      finish.href = 'https://wa.me/524622519129?text=' + encodeURIComponent(text);
     }
-    history.replaceState(null,'','aportar.html?amount='+encodeURIComponent(String(n)));
+    history.replaceState(null, '', 'aportar.html?amount=' + encodeURIComponent(String(n)));
   }
 
-  const isCustom=raw==='custom';
-  const preset=raw && raw!=='custom' && !Number.isNaN(Number(raw)) ? Number(raw) : null;
-
-  if(isCustom){
-    if(box) box.style.display='block';
-    if(selected) selected.textContent='Define tu monto';
-    if(input) input.focus();
-  }else if(preset){
-    setAmount(preset);
-  }else{
-    if(box) box.style.display='block';
-    if(selected) selected.textContent='Define tu monto';
+  if(raw === 'custom'){
+    if(selected) selected.textContent = 'Define tu monto';
+    if(box) box.style.display = 'block';
+  } else if(raw && !Number.isNaN(Number(raw)) && Number(raw) > 0){
+    setAmount(raw);
+  } else {
+    if(selected) selected.textContent = 'Define tu monto';
+    if(box) box.style.display = 'block';
   }
 
-  confirm?.addEventListener('click',()=>setAmount(input?.value));
-  input?.addEventListener('keydown',e=>{if(e.key==='Enter') setAmount(input.value);});
+  confirm?.addEventListener('click', () => setAmount(input?.value));
+  input?.addEventListener('keydown', e => {
+    if(e.key === 'Enter') setAmount(input.value);
+  });
 
-  document.querySelectorAll('[data-copy-bank]').forEach(btn=>{
-    btn.addEventListener('click',async()=>{
+  document.querySelectorAll('[data-copy-bank]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const original = btn.textContent;
       try{
         await navigator.clipboard.writeText(btn.dataset.copyBank);
-        const old=btn.textContent;
-        btn.textContent='Copiado ✓';
-        setTimeout(()=>btn.textContent=old,1600);
-      }catch(e){ alert('No se pudo copiar. Puedes seleccionar el dato manualmente.'); }
+        btn.textContent = 'Copiado ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1800);
+      }catch(e){
+        btn.textContent = 'Selecciona y copia';
+        setTimeout(() => btn.textContent = original, 1800);
+      }
     });
   });
 })();
 </script>
 </body></html>
-<!-- Publicación GitHub Pages: versión canónica de aportación -->
