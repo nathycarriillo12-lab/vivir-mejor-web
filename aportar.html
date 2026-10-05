@@ -15,8 +15,22 @@
     <h2>Datos bancarios</h2>
     <p class="bank-intro">Realiza tu aportación a la cuenta oficial de Vivir Mejor Irapuato A.C.</p>
     <div class="selected-contribution">
-      <span>Aportación seleccionada</span>
+      <div>
+        <span>Aportación seleccionada</span>
+        <small id="amountHelper" style="display:block;margin-top:8px;opacity:.78;">El monto que transfieras puede ser el que tú decidas.</small>
+      </div>
       <strong id="selectedAmount3">Cargando…</strong>
+    </div>
+    <div id="customAmountBox" style="display:none;margin:18px 0 28px;padding:22px 24px;border:1.5px solid #d6e0e9;border-radius:18px;background:#fff;">
+      <span class="donation-label">DEFINE TU APORTACIÓN</span>
+      <h3 style="margin:8px 0 6px;">¿Cuánto deseas aportar?</h3>
+      <p style="margin:0 0 16px;color:#64748b;">Escribe la cantidad que quieres transferir. No necesitas seleccionar un monto previamente.</p>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <label for="customAmount" style="font-weight:700;color:#18324F;">$</label>
+        <input id="customAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="Ej. 750" aria-label="Monto personalizado en pesos mexicanos" style="flex:1;min-width:180px;padding:14px 16px;border:1.5px solid #cbd5e1;border-radius:12px;font:inherit;color:#18324F;">
+        <button id="confirmCustomAmount" type="button" class="btn btn-primary">Confirmar monto</button>
+      </div>
+      <p id="customAmountError" role="alert" style="display:none;color:#A94F1F;margin:10px 0 0;font-weight:600;">Ingresa un monto mayor a $0.</p>
     </div>
     <div class="bank-card">
       <div class="bank-card-head">
@@ -47,16 +61,59 @@
 (function(){
   const params=new URLSearchParams(window.location.search);
   const raw=params.get('amount');
-  const amount=raw && raw !== 'custom' && !Number.isNaN(Number(raw)) ? Number(raw) : null;
   const selected=document.getElementById('selectedAmount3');
-  if(selected) selected.textContent=amount ? '$'+amount.toLocaleString('es-MX')+' MXN' : 'Otro monto';
   const finish=document.getElementById('donationFinish');
-  if(finish){
-    const text=amount
-      ? 'Hola, Vivir Mejor. Ya realicé una aportación de $'+amount.toLocaleString('es-MX')+' MXN y quiero enviar mi comprobante.'
-      : 'Hola, Vivir Mejor. Ya realicé una aportación y quiero enviar mi comprobante.';
-    finish.href='https://wa.me/524622519129?text='+encodeURIComponent(text);
+  const box=document.getElementById('customAmountBox');
+  const input=document.getElementById('customAmount');
+  const confirm=document.getElementById('confirmCustomAmount');
+  const error=document.getElementById('customAmountError');
+
+  function setAmount(amount){
+    const n=Number(amount);
+    if(!Number.isFinite(n) || n<=0){
+      if(error) error.style.display='block';
+      return;
+    }
+    if(error) error.style.display='none';
+    const formatted='
+</body></html>
+<!-- Publicación GitHub Pages: versión canónica de aportación -->
++n.toLocaleString('es-MX')+' MXN';
+    if(selected) selected.textContent=formatted;
+    if(finish){
+      const text='Hola, Vivir Mejor. Ya realicé una aportación de '+formatted+' y quiero enviar mi comprobante.';
+      finish.href='https://wa.me/524622519129?text='+encodeURIComponent(text);
+    }
+    history.replaceState(null,'','aportar.html?amount='+encodeURIComponent(String(n)));
   }
+
+  const isCustom=raw==='custom';
+  const preset=raw && raw!=='custom' && !Number.isNaN(Number(raw)) ? Number(raw) : null;
+
+  if(isCustom){
+    if(box) box.style.display='block';
+    if(selected) selected.textContent='Define tu monto';
+    if(input) input.focus();
+  }else if(preset){
+    setAmount(preset);
+  }else{
+    if(box) box.style.display='block';
+    if(selected) selected.textContent='Define tu monto';
+  }
+
+  confirm?.addEventListener('click',()=>setAmount(input?.value));
+  input?.addEventListener('keydown',e=>{if(e.key==='Enter') setAmount(input.value);});
+
+  document.querySelectorAll('[data-copy-bank]').forEach(btn=>{
+    btn.addEventListener('click',async()=>{
+      try{
+        await navigator.clipboard.writeText(btn.dataset.copyBank);
+        const old=btn.textContent;
+        btn.textContent='Copiado ✓';
+        setTimeout(()=>btn.textContent=old,1600);
+      }catch(e){ alert('No se pudo copiar. Puedes seleccionar el dato manualmente.'); }
+    });
+  });
 })();
 </script>
 </body></html>
