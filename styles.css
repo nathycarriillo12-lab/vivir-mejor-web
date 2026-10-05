@@ -510,3 +510,11 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 
 
 .amount-edit{font-size:14px}.amount-edit:hover,.amount-edit:focus-visible{color:#A94F1F}
+
+
+/* Mantener la acción final en una sola línea */
+.bank-finish .btn{
+  white-space:nowrap;
+  flex-shrink:0;
+  min-width:max-content;
+}
