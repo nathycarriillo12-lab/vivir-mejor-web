@@ -491,3 +491,14 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 .donation-shell{padding:0 0 70px!important}
 .donation-top{padding:38px 0 30px!important}
 @media(max-width:800px){.donation-top{padding:28px 0 24px!important}}
+
+
+/* Refinamiento visual de aportación */
+.donation-shell{padding:0 0 70px!important}
+.donation-top{padding:22px 0 20px!important}
+.donation-top h1{margin:6px 0 10px}
+.donation-top p{margin:0}
+.donation-progress{height:4px}
+.bank-card button[data-copy-bank]{transition:background .2s ease,color .2s ease,transform .2s ease}
+.bank-card button[data-copy-bank].copied{background:#6b7280!important;color:#fff!important;transform:none}
+@media(max-width:800px){.donation-top{padding:20px 0 18px!important}}
