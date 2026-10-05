@@ -65,7 +65,9 @@ document.querySelectorAll('[data-copy-bank]').forEach(btn=>btn.addEventListener(
  const page=document.querySelector('.bank-step');
  if(!page)return;
  const value=new URLSearchParams(location.search).get('amount');
- const amount=value && value!=='custom' ? Number(value) : 500;
+ const amount=value && value!=='custom' && !Number.isNaN(Number(value)) ? Number(value) : null;
  const el=document.getElementById('selectedAmount3');
- if(el)el.textContent='$'+Number(amount).toLocaleString('es-MX')+' MXN';
+ if(el)el.textContent=amount ? '
+})();
++amount.toLocaleString('es-MX')+' MXN' : 'Otro monto';
 })();
