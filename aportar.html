@@ -20,6 +20,7 @@
         <small id="amountHelper" style="display:block;margin-top:8px;opacity:.78;">El monto que transfieras puede ser el que tú decidas.</small>
       </div>
       <strong id="selectedAmount3">Define tu monto</strong>
+    <button id="changeAmount" type="button" class="amount-edit" style="display:none;background:transparent;border:0;padding:0;margin:10px 0 0;color:#3E608F;font-weight:800;text-decoration:underline;cursor:pointer;">Cambiar monto</button>
     </div>
     <div id="customAmountBox" style="display:block;margin:18px 0 28px;padding:22px 24px;border:1.5px solid #d6e0e9;border-radius:18px;background:#fff;">
       <span class="donation-label">DEFINE TU APORTACIÓN</span>
@@ -67,9 +68,18 @@
   const input = document.getElementById('customAmount');
   const confirm = document.getElementById('confirmCustomAmount');
   const error = document.getElementById('customAmountError');
+  const change = document.getElementById('changeAmount');
 
   function formatAmount(n){
     return '$' + Number(n).toLocaleString('es-MX') + ' MXN';
+  }
+
+  function updateFinish(n){
+    if(finish){
+      const formatted = formatAmount(n);
+      const text = 'Hola, Vivir Mejor. Ya realicé una aportación de ' + formatted + ' y quiero enviar mi comprobante.';
+      finish.href = 'https://wa.me/524622519129?text=' + encodeURIComponent(text);
+    }
   }
 
   function setAmount(value){
@@ -79,27 +89,33 @@
       return;
     }
     if(error) error.style.display = 'none';
-    const formatted = formatAmount(n);
-    if(selected) selected.textContent = formatted;
+    if(selected) selected.textContent = formatAmount(n);
+    if(input) input.value = n;
     if(box) box.style.display = 'none';
-    if(finish){
-      const text = 'Hola, Vivir Mejor. Ya realicé una aportación de ' + formatted + ' y quiero enviar mi comprobante.';
-      finish.href = 'https://wa.me/524622519129?text=' + encodeURIComponent(text);
-    }
+    if(change) change.style.display = 'inline-block';
+    updateFinish(n);
     history.replaceState(null, '', 'aportar.html?amount=' + encodeURIComponent(String(n)));
   }
 
-  if(raw === 'custom'){
-    if(selected) selected.textContent = 'Define tu monto';
+  function editAmount(){
     if(box) box.style.display = 'block';
-  } else if(raw && !Number.isNaN(Number(raw)) && Number(raw) > 0){
+    if(change) change.style.display = 'none';
+    if(input){
+      input.focus();
+      input.select();
+    }
+  }
+
+  if(raw && raw !== 'custom' && !Number.isNaN(Number(raw)) && Number(raw) > 0){
     setAmount(raw);
   } else {
     if(selected) selected.textContent = 'Define tu monto';
     if(box) box.style.display = 'block';
+    if(change) change.style.display = 'none';
   }
 
   confirm?.addEventListener('click', () => setAmount(input?.value));
+  change?.addEventListener('click', editAmount);
   input?.addEventListener('keydown', e => {
     if(e.key === 'Enter') setAmount(input.value);
   });
