@@ -485,3 +485,9 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 @media(max-width:800px){
   .footer-contact-card{margin-top:8px}
 }
+
+
+/* Ajuste visual de la página de aportación */
+.donation-shell{padding:0 0 70px!important}
+.donation-top{padding:38px 0 30px!important}
+@media(max-width:800px){.donation-top{padding:28px 0 24px!important}}
