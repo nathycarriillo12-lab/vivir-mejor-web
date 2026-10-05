@@ -1,5 +1,5 @@
 
-const WHATSAPP='524624320651';
+const WHATSAPP='524622519129';
 const wa=(msg='Hola, Vivir Mejor. Quiero conocer más sobre sus proyectos.')=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 document.querySelectorAll('[data-wa]').forEach(a=>a.href=wa(a.dataset.wa||undefined));
 const menuBtn=document.querySelector('.hamb'); const mobile=document.querySelector('.mobile-menu');
