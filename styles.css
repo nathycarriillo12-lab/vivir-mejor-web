@@ -507,3 +507,6 @@ section{padding:92px 0}.section-head{max-width:760px;margin-bottom:42px}.section
 /* Alineación de tarjetas de aportación */
 .bank-card{max-width:none!important;width:100%!important;box-sizing:border-box}
 .receipt-card{width:100%;box-sizing:border-box}
+
+
+.amount-edit{font-size:14px}.amount-edit:hover,.amount-edit:focus-visible{color:#A94F1F}
